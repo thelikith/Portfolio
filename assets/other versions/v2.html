@@ -7,22 +7,13 @@
     <meta name="description" content="Personal portfolio of Likithkumar Rachaputi, a VLSI Master's student specializing in digital IC design, verification, and low-power design.">
     <meta name="keywords" content="Likithkumar Rachaputi, VLSI, Portfolio, Digital IC Design, ASIC, FPGA, RTL, Cadence, OpenLane, Low-Power Design, Verification">
     
-	<!-- SEO Meta Tags -->
-    <meta name="description" content="Personal portfolio of Likithkumar Rachaputi, a VLSI Master's student specializing in digital IC design, verification, and low-power design.">
-    <meta name="keywords" content="Likithkumar Rachaputi, VLSI, Portfolio, Digital IC Design, ASIC, FPGA, RTL, Cadence, OpenLane, Low-Power Design, Verification">
-
-    <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
     <link rel="shortcut icon" href="assets/favicon/favicon.ico">
     
-    <!-- SVG Favicon (Commented out as an alternative) -->
-    <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>LR</text></svg>"> -->
-
-	
-	<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         body {
@@ -74,6 +65,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .skills-subtitle {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 700; /* font-bold */
+            margin-top: 0.5rem; /* mt-2 */
+            margin-bottom: 0.75rem; /* mb-3 */
+        }
+        .text-lang-header { color: #b3cbff; }
+        .text-tools-header { color: #b3cafe; }
+        .text-fw-header { color: #b3dbfe; }
+        .text-course-header { color: #aecefd; }
         .skill-tag {
             padding: 8px 18px;
             border-radius: 9999px;
@@ -110,7 +111,7 @@
             border-radius: 9999px;
             padding: 6px 16px;
             font-size: 0.94rem;
-            font-weight:650;
+            font-weight: 600; /* Standardized from 650 */
             text-shadow: 0 2px 10px #37415166;
             border: 1.5px solid #b2c0fe40;
             letter-spacing: .012em;
@@ -154,14 +155,6 @@
 <aside class="w-full md:w-72 bg-gradient-to-tr from-gray-900 to-indigo-900 text-gray-200 p-4 md:p-7 flex-shrink-0 shadow-2xl z-10 relative">
     <div class="md:sticky md:top-7">
         <div class="flex items-center mb-8">
-			<!-- To add your own photo in the future:
-				 1. Create a folder named 'assets' in your project.
-				 2. Inside 'assets', create another folder named 'images'.
-				 3. Place your photo (e.g., 'profile-photo.jpg') inside the 'images' folder.
-				 4. Uncomment the line below and delete the current <img> line.
-			-->
-			<!-- <img src="assets/images/profile-photo.jpg" alt="Likithkumar Rachaputi" class="w-18 h-18 md:w-24 md:h-24 rounded-full border-3 border-indigo-500 shadow-lg transition duration-200 hover:scale-105"> -->
-                
             <img src="https://placehold.co/90x90/4f46e5/ffffff?text=LR" alt="Likithkumar Rachaputi"
                  class="w-18 h-18 md:w-24 md:h-24 rounded-full border-3 border-indigo-500 shadow-lg transition duration-200 hover:scale-105">
             <div class="ml-5">
@@ -178,11 +171,9 @@
             <a href="#contact" onclick="showPage('contact', this)" class="nav-link flex items-center px-5 py-3 rounded-xl font-medium gap-3 hover:bg-gray-800 hover:text-white transition">✉️ Contact</a>
         </nav>
         <div>
-            <a href="https://drive.google.com/file/d/1M53PBnecSHM5GRGYq2E2SCdnFuFKVZqs/view?usp=sharing"
-               download="Likithkumar_Rachaputi_Resume.pdf"
+            <a href="https://drive.google.com/uc?export=download&id=1M53PBnecSHM5GRGYq2E2SCdnFuFKVZqs"
                class="w-full inline-flex items-center justify-center px-5 py-3 shadow-md border-0 text-base font-semibold rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.05] transition mb-2"
-               target="_blank" rel="noopener noreferrer"
-            >
+               target="_blank" rel="noopener noreferrer">
                 <span class="mr-2">Download Resume</span>
                 <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
             </a>
@@ -201,13 +192,13 @@
             <div class="mt-8 flex justify-center md:justify-start space-x-5">
                 <a href="https://linkedin.com/in/rlikith"
                    class="text-indigo-400 hover:text-white bg-indigo-900/40 p-2 rounded-full shadow transition hover:scale-110"
-                   target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                   target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="View Likithkumar Rachaputi's LinkedIn Profile">
+                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
                 </a>
                 <a href="https://github.com/thelikith"
                    class="text-indigo-400 hover:text-white bg-indigo-900/40 p-2 rounded-full shadow transition hover:scale-110"
-                   target="_blank" rel="noopener noreferrer" title="GitHub">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                   target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="View Likithkumar Rachaputi's GitHub Profile">
+                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                 </a>
             </div>
         </div>
@@ -215,14 +206,14 @@
     <section id="skills" class="fade-in">
         <h2 class="section-title mb-6">Technical Skills</h2>
         <div class="card no-hover p-6 mb-6">
-            <h3 class="text-lg font-bold mt-2 mb-3" style="color:#b3cbff;">Languages</h3>
+            <h3 class="skills-subtitle text-lang-header">Languages</h3>
             <div class="flex flex-wrap gap-3 mb-6">
                 <span class="skill-tag lang-tag">Verilog</span>
                 <span class="skill-tag lang-tag">Python</span>
                 <span class="skill-tag lang-tag">C</span>
                 <span class="skill-tag lang-tag">TCL</span>
             </div>
-            <h3 class="text-lg font-bold mt-2 mb-3" style="color:#b3cafe;">Electronic Design/Simulation Tools</h3>
+            <h3 class="skills-subtitle text-tools-header">Electronic Design/Simulation Tools</h3>
             <div class="flex flex-wrap gap-3 mb-6">
                 <span class="skill-tag tools-tag">Cadence Virtuoso</span>
                 <span class="skill-tag tools-tag">Cadence Genus</span>
@@ -235,12 +226,12 @@
                 <span class="skill-tag tools-tag">LTspice</span>
                 <span class="skill-tag tools-tag">KiCAD</span>
             </div>
-            <h3 class="text-lg font-bold mt-2 mb-3" style="color:#b3dbfe;">Technologies/Frameworks</h3>
+            <h3 class="skills-subtitle text-fw-header">Technologies/Frameworks</h3>
             <div class="flex flex-wrap gap-3 mb-6">
                 <span class="skill-tag fw-tag">Linux</span>
                 <span class="skill-tag fw-tag">GitHub</span>
             </div>
-            <h3 class="text-lg font-bold mt-2 mb-3" style="color:#aecefd;">Relevant Coursework</h3>
+            <h3 class="skills-subtitle text-course-header">Relevant Coursework</h3>
             <div class="flex flex-wrap gap-3">
                 <span class="skill-tag course-tag">Digital CMOS VLSI Design</span>
                 <span class="skill-tag course-tag">VLSI Architecture</span>
@@ -419,7 +410,7 @@
             targetPage.classList.add('fade-in');
 
             setTimeout(function() {
-                const yOffset = -28;
+                const yOffset = -28; 
                 const y = targetPage.getBoundingClientRect().top + window.scrollY + yOffset;
                 window.scrollTo({ top: y, left: 0, behavior: 'smooth' });
             }, 60);
