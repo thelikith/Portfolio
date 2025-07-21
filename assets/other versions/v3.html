@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likithkumar Rachaputi | VLSI Portfolio</title>
+    <meta name="description" content="Personal portfolio of Likithkumar Rachaputi, a VLSI Master's student specializing in digital IC design, verification, and low-power design.">
+    <meta name="keywords" content="Likithkumar Rachaputi, VLSI, Portfolio, Digital IC Design, ASIC, FPGA, RTL, Cadence, OpenLane, Low-Power Design, Verification">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; 
+            min-height: 100vh;
+            color: #e2e8f0;
+            overflow-x: hidden; /* Prevent horizontal scrollbar from animation */
+        }
+        #bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .nav-link.active {
+            background: linear-gradient(90deg, #6366f1 0%, #818cf8 95%);
+            color: #fff;
+            box-shadow: 0 2px 8px 0 #6366f11a, 0 0.5px 1px #0002;
+        }
+        main section:not(#home) { display: none; }
+        @keyframes fadeIn { from{opacity:0;} to{opacity:1;}}
+        .fade-in { animation:fadeIn .7s cubic-bezier(.45,1.15,.55,1) forwards; }
+        @keyframes slideIn {
+            from { opacity:0; transform: translateX(35px);}
+            to {opacity:1; transform:translateX(0);}
+        }
+        .slide-in { animation:slideIn .6s cubic-bezier(.38,1.15,.45,1) forwards;}
+
+        .card {
+            background: rgba(31,41,55,0.97);
+            border-radius: 0.8rem;
+            border: 1.5px solid #374151cc;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 6px 36px 0 #6366f128, 0 2px 5px #37415129;
+            transition: transform 0.23s cubic-bezier(0.42,0,0.58,1), box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-7px) scale(1.012);
+            box-shadow:0 16px 32px 0 #4f46e552, 0 0.5px 2px #0002;
+        }
+        .card.no-hover:hover {
+            transform: none;
+            box-shadow: 0 6px 36px 0 #6366f128, 0 2px 5px #37415129;
+        }
+        .section-title {
+            font-size:2.2rem; font-weight:800;
+            color: #fff;
+            letter-spacing:-1px;
+            display:inline-block;
+            background:linear-gradient(90deg,#a5b4fc,#818cf8,#6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .skills-subtitle {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .text-lang-header { color: #b3cbff; }
+        .text-tools-header { color: #b3cafe; }
+        .text-fw-header { color: #b3dbfe; }
+        .text-course-header { color: #aecefd; }
+        .skill-tag {
+            padding: 8px 18px;
+            border-radius: 9999px;
+            font-size: 1.03rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: inline-block;
+            box-shadow: 0 4px 18px rgba(75,108,212,0.11), 0 0.5px 2px rgba(60,130,247,0.08);
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px) saturate(150%);
+            background: linear-gradient(120deg, rgba(42,93,204,0.20) 0%, rgba(99,102,241,0.38) 100%);
+            color: #e0e7ff;
+            transition: border .18s, background .2s, color .23s;
+        }
+        .lang-tag {
+            background: linear-gradient(120deg, rgba(35,86,185,0.24) 0%, rgba(129,140,248,0.46) 100%);
+            color: #f0f6ff;
+        }
+        .tools-tag {
+            background: linear-gradient(110deg, rgba(100,176,255,0.15) 0%, rgba(99,102,241,0.38) 100%);
+            color:#c7d6fa;
+        }
+        .fw-tag {
+            background: linear-gradient(120deg, rgba(61,139,255,0.18) 0%, rgba(135,180,250,0.33) 100%);
+            color:#e9f4fe;
+        }
+        .course-tag {
+            background: linear-gradient(120deg, rgba(55,110,204,0.17) 0%, rgba(134,143,255,0.33) 100%);
+            color:#dce8ff;
+        }
+        .tech-tag {
+            background: linear-gradient(110deg,rgba(99,102,241,0.68) 30%,rgba(36,182,255,0.82) 100%);
+            color: #fff;
+            border-radius: 9999px;
+            padding: 6px 16px;
+            font-size: 0.94rem;
+            font-weight: 600;
+            text-shadow: 0 2px 10px #37415166;
+            border: 1.5px solid #b2c0fe40;
+            letter-spacing: .012em;
+            box-shadow: 0 2px 18px #4f46e540;
+            transition: box-shadow 0.2s, transform 0.18s;
+        }
+        .tech-tag.bright {
+            background: linear-gradient(110deg, #60a5fa 0%, #818cf8 100%);
+            color: #faffff;
+            border: 1.5px solid #c7d5fa80;
+        }
+        .accent-card {
+            border-left:5px solid #6366f1;
+            background: rgba(31,41,55,0.96);
+            border-radius:0.7rem;
+            box-shadow:0 6px 12px #6366f11a;
+        }
+        .form-input {
+            display:block;width:100%;
+            border-radius:0.6rem;
+            background-color:rgba(35,45,80,0.43);
+            border: 1.5px solid #6366f1aa;
+            padding: 0.9rem 1.2rem; color: #d1d5db;
+            font-size:1.07rem;
+            box-shadow:0 4px 24px #1e293b24;
+            backdrop-filter: blur(6px);
+            transition: border .18s,box-shadow .21s;
+        }
+        .form-input:focus {
+            outline:none;
+            border-color:#818cf8;
+            box-shadow:0 3px 12px #6366f155;
+        }
+        .form-input::placeholder {color:#a5b4cb;}
+        @media (max-width: 768px){
+            aside {overflow-x:auto;}
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+<canvas id="bg-animation"></canvas>
+
+<aside class="w-full md:w-72 bg-gradient-to-tr from-gray-900/90 to-indigo-900/90 text-gray-200 p-4 md:p-7 flex-shrink-0 shadow-2xl z-10 relative backdrop-blur-sm border-r border-slate-700/50">
+    <div class="md:sticky md:top-7">
+        <div class="flex items-center mb-8">
+            <img src="https://placehold.co/90x90/4f46e5/ffffff?text=LR" alt="Likithkumar Rachaputi"
+                 class="w-18 h-18 md:w-24 md:h-24 rounded-full border-3 border-indigo-500 shadow-lg transition duration-200 hover:scale-105">
+            <div class="ml-5">
+                <h1 class="text-2xl font-bold text-white leading-none mb-2">Likithkumar Rachaputi</h1>
+                <p class="text-md text-indigo-300 rounded bg-indigo-900/40 inline-block px-2 py-0.5 font-medium">VLSI Student</p>
+            </div>
+        </div>
+        <nav id="nav-menu" class="space-y-2 mb-8">
+            <a href="#home" onclick="showPage('home', this)" class="nav-link active flex items-center px-5 py-3 rounded-xl font-medium gap-3 hover:bg-gray-800 hover:text-white transition">🏠 Home</a>
+            <a href="#skills" onclick="showPage('skills', this)" class="nav-link flex items-center px-5 py-3 rounded-xl font-medium gap-3 hover:bg-gray-800 hover:text-white transition">🧩 Skills</a>
+            <a href="#education" onclick="showPage('education', this)" class="nav-link flex items-center px-5 py-3 rounded-xl font-medium gap-3 hover:bg-gray-800 hover:text-white transition">🎓 Education</a>
+            <a href="#projects" onclick="showPage('projects', this)" class="nav-link flex items-center px-5 py-3 rounded-xl font-medium gap-3 hover:bg-gray-800 hover:text-white transition">🚀 Projects</a>
+            <a href="#publications" onclick="showPage('publications', this)" class="nav-link flex items-center px-5 py-3 rounded-xl font-medium gap-3 hover:bg-gray-800 hover:text-white transition">📚 Publications</a>
+            <a href="#contact" onclick="showPage('contact', this)" class="nav-link flex items-center px-5 py-3 rounded-xl font-medium gap-3 hover:bg-gray-800 hover:text-white transition">✉️ Contact</a>
+        </nav>
+        <div>
+            <a href="https://drive.google.com/uc?export=download&id=1M53PBnecSHM5GRGYq2E2SCdnFuFKVZqs"
+               class="w-full inline-flex items-center justify-center px-5 py-3 shadow-md border-0 text-base font-semibold rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.05] transition mb-2"
+               target="_blank" rel="noopener noreferrer">
+                <span class="mr-2">Download Resume</span>
+                <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            </a>
+        </div>
+    </div>
+</aside>
+<main class="flex-1 px-2 md:px-8 py-8">
+    <section id="home" class="fade-in">
+        <div class="text-center md:text-left">
+            <h2 class="block text-4xl md:text-5xl font-extrabold leading-tight text-white section-title slide-in">
+                Innovating at the Core of Technology
+            </h2>
+            <p class="mt-5 text-lg text-gray-300 max-w-2xl mx-auto md:mx-0 fade-in">
+                A passionate VLSI Master's student focused on digital IC design, verification, and low-power architectures. I enjoy solving complex problems and building the hardware that powers our future.
+            </p>
+            <div class="mt-8 flex justify-center md:justify-start space-x-5">
+                <a href="https://linkedin.com/in/rlikith"
+                   class="text-indigo-400 hover:text-white bg-indigo-900/40 p-2 rounded-full shadow transition hover:scale-110"
+                   target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="View Likithkumar Rachaputi's LinkedIn Profile">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                </a>
+                <a href="https://github.com/thelikith"
+                   class="text-indigo-400 hover:text-white bg-indigo-900/40 p-2 rounded-full shadow transition hover:scale-110"
+                   target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="View Likithkumar Rachaputi's GitHub Profile">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="fade-in">
+        <h2 class="section-title mb-6">Technical Skills</h2>
+        <div class="card no-hover p-6 mb-6">
+            <h3 class="skills-subtitle text-lang-header">Languages</h3>
+            <div class="flex flex-wrap gap-3 mb-6">
+                <span class="skill-tag lang-tag">Verilog</span>
+                <span class="skill-tag lang-tag">Python</span>
+                <span class="skill-tag lang-tag">C</span>
+                <span class="skill-tag lang-tag">TCL</span>
+            </div>
+            <h3 class="skills-subtitle text-tools-header">Electronic Design/Simulation Tools</h3>
+            <div class="flex flex-wrap gap-3 mb-6">
+                <span class="skill-tag tools-tag">Cadence Virtuoso</span>
+                <span class="skill-tag tools-tag">Cadence Genus</span>
+                <span class="skill-tag tools-tag">Cadence Innovus</span>
+                <span class="skill-tag tools-tag">OpenSTA</span>
+                <span class="skill-tag tools-tag">OpenLANE</span>
+                <span class="skill-tag tools-tag">OpenROAD</span>
+                <span class="skill-tag tools-tag">Xilinx Vivado</span>
+                <span class="skill-tag tools-tag">MATLAB</span>
+                <span class="skill-tag tools-tag">LTspice</span>
+                <span class="skill-tag tools-tag">KiCAD</span>
+            </div>
+            <h3 class="skills-subtitle text-fw-header">Technologies/Frameworks</h3>
+            <div class="flex flex-wrap gap-3 mb-6">
+                <span class="skill-tag fw-tag">Linux</span>
+                <span class="skill-tag fw-tag">GitHub</span>
+            </div>
+            <h3 class="skills-subtitle text-course-header">Relevant Coursework</h3>
+            <div class="flex flex-wrap gap-3">
+                <span class="skill-tag course-tag">Digital CMOS VLSI Design</span>
+                <span class="skill-tag course-tag">VLSI Architecture</span>
+                <span class="skill-tag course-tag">Digital Electronics</span>
+                <span class="skill-tag course-tag">Electronic Systems Packaging</span>
+                <span class="skill-tag course-tag">System Design with FPGA</span>
+                <span class="skill-tag course-tag">Embedded Systems</span>
+            </div>
+        </div>
+    </section>
+    <section id="education" class="fade-in">
+        <h2 class="section-title mb-6">Education</h2>
+        <div class="space-y-8">
+            <div class="card flex p-6 gap-4">
+                <div><span class="text-indigo-400 font-bold">2024 - 2026</span></div>
+                <div>
+                    <h3 class="text-lg font-bold text-white">Master of Technology in Electronics and Communication Engineering</h3>
+                    <p class="text-gray-300">International Institute of Information Technology, Bangalore</p>
+                    <p class="mt-1 text-indigo-200">CGPA: 3.06/4.0</p>
+                </div>
+            </div>
+            <div class="card flex p-6 gap-4">
+                <div><span class="text-indigo-400 font-bold">2017 - 2021</span></div>
+                <div>
+                    <h3 class="text-lg font-bold text-white">Bachelor of Technology in Electrical and Electronics Engineering</h3>
+                    <p class="text-gray-300">Amrita Vishwa Vidyapeetham</p>
+                    <p class="mt-1 text-indigo-200">CGPA: 9.01/10.0</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="fade-in">
+        <h2 class="section-title mb-6">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+            <div class="relative card p-6">
+                <h3 class="text-lg font-bold text-white">Physical Design of RISC-V Core Using OpenLane</h3>
+                <p class="mt-2 text-gray-400">Implemented the RTL-to-GDSII flow for the PicoRV32a RISC-V core. Performed STA, DRC, and LVS verification, generating the final GDSII file using Magic and KLayout for fabrication readiness.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag bright">OpenLane</span>
+                    <span class="tech-tag bright">OpenROAD</span>
+                    <span class="tech-tag bright">RTL-to-GDSII</span>
+                    <span class="tech-tag bright">STA</span>
+                </div>
+                <div class="mt-4">
+                    <a href="https://github.com/thelikith/asic-design-class" class="text-indigo-400 font-semibold hover:text-white transition" target="_blank">View Project &rarr;</a>
+                </div>
+            </div>
+            <div class="relative card p-6">
+                <h3 class="text-lg font-bold text-white">Low-Power Dual-Edge Triggered Flip-Flop</h3>
+                <p class="mt-2 text-gray-400">Engineered a novel Low-Power Redundant-Transition-Free TSPC DET Flip-Flop in 45nm GPDK. Achieved the lowest power consumption and best PDP among tested circuits. Completed full schematic-to-layout flow.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag bright">Cadence Virtuoso</span>
+                    <span class="tech-tag bright">Low-Power Design</span>
+                    <span class="tech-tag bright">45nm</span>
+                </div>
+                <div class="mt-4">
+                    <a href="https://github.com/thelikith/low-power-det-flipflop/tree/main" class="text-indigo-400 font-semibold hover:text-white transition" target="_blank">View Project &rarr;</a>
+                </div>
+            </div>
+            <div class="relative card p-6">
+                <h3 class="text-lg font-bold text-white">Approximate and Iterative Posit Multiplier</h3>
+                <p class="mt-2 text-gray-400">Designed and implemented an Approximate and Iterative Posit Multiplier on a Basys 3 FPGA. Developed key components like a decoder, mantissa multiplier, and encoder. Implemented in Python for error analysis.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag bright">Verilog</span>
+                    <span class="tech-tag bright">Xilinx Vivado</span>
+                    <span class="tech-tag bright">FPGA</span>
+                    <span class="tech-tag bright">Python</span>
+                </div>
+                <div class="mt-4">
+                    <a href="https://github.com/thelikith/FPGA_Project" class="text-indigo-400 font-semibold hover:text-white transition" target="_blank">View Project &rarr;</a>
+                </div>
+            </div>
+            <div class="relative card p-6">
+                <h3 class="text-lg font-bold text-white">Performance Analysis of Full Adder</h3>
+                <p class="mt-2 text-gray-400">Designed and implemented Full Adders at the transistor level using 45nm and 90nm CMOS nodes. Performed comparative analysis of delay and power consumption to evaluate the impact of technology scaling.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag bright">Cadence Virtuoso</span>
+                    <span class="tech-tag bright">CMOS</span>
+                    <span class="tech-tag bright">45nm</span>
+                    <span class="tech-tag bright">90nm</span>
+                </div>
+                <div class="mt-4">
+                    <a href="https://github.com/thelikith/Portfolio/blob/c1aa88ed1f8be4ef75043dd46beea9248d61cf83/assets/project%20reports/Performance%20Analysis%20of%20Full%20Adder.pdf" class="text-indigo-400 font-semibold hover:text-white transition" target="_blank">View Project &rarr;</a>
+                </div>
+            </div>
+            <div class="relative card p-6">
+                <h3 class="text-lg font-bold text-white">I2C Bootloader Implementation</h3>
+                <p class="mt-2 text-gray-400">Developed and integrated an I2C Bootloader for the PSoC 5LP microcontroller using PSoC Creator. Configured the bootloader host and successfully implemented I2C communication for firmware upgrades.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag bright">C</span>
+                    <span class="tech-tag bright">PSoC 5LP</span>
+                    <span class="tech-tag bright">I2C</span>
+                    <span class="tech-tag bright">Bootloader</span>
+                </div>
+                <div class="mt-4">
+                    <a href="https://github.com/thelikith/Portfolio/blob/c1aa88ed1f8be4ef75043dd46beea9248d61cf83/assets/project%20reports/I2C%20Bootloader%20Implementation.pdf" class="text-indigo-400 font-semibold hover:text-white transition" target="_blank">View Project &rarr;</a>
+                </div>
+            </div>
+            <div class="relative card p-6">
+                <h3 class="text-lg font-bold text-white">PCB Design of Wireless Power Bank</h3>
+                <p class="mt-2 text-gray-400">Designed a complete PCB for a 10000 mAh wireless power bank supporting USB PD 3.0 and Qi standards. The design includes a boost converter, battery management system, and wireless transmitter IC.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag bright">KiCAD</span>
+                    <span class="tech-tag bright">PCB Design</span>
+                    <span class="tech-tag bright">Wireless Charging</span>
+                    <span class="tech-tag bright">BMS</span>
+                </div>
+                <div class="mt-4">
+                    <a href="https://github.com/thelikith/Portfolio/blob/c1aa88ed1f8be4ef75043dd46beea9248d61cf83/assets/project%20reports/PCB%20Design%20of%20Wireless%20Power%20Bank.pdf" class="text-indigo-400 font-semibold hover:text-white transition" target="_blank">View Project &rarr;</a>
+                </div>
+            </div>
+            <div class="relative card p-6">
+                <h3 class="text-lg font-bold text-white">Smart Hexapod for Hospitals</h3>
+                <p class="mt-2 text-gray-400">Simulated a Hexapod Robot using Simscape Multibody Toolbox in MATLAB to explore robotic solutions during the COVID-19 pandemic. Found that a Fuzzy Logic Controller gave the best stability and responsiveness.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag bright">MATLAB</span>
+                    <span class="tech-tag bright">Simulink</span>
+                    <span class="tech-tag bright">Fuzzy Logic</span>
+                </div>
+                <div class="mt-4">
+                    <a href="https://drive.google.com/file/d/1qUkV_w1g-1-QEF8ARzgqOZql9UkS7Gzb/view?usp=drive_link" class="text-indigo-400 font-semibold hover:text-white transition" target="_blank">View Project &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="publications" class="fade-in">
+        <h2 class="section-title mb-6">Publications</h2>
+        <div class="card accent-card p-6 mb-5">
+            <h3 class="text-lg font-bold text-white">Performance analysis of Hexapod leg with different controllers</h3>
+            <p class="mt-1 text-gray-400">
+                <span class="font-semibold">Conference:</span>
+                12th IEEE International Conference on Communication and Electronics Systems (ICCES), Aug 2021.
+            </p>
+            <div class="mt-3">
+                <a href="https://ieeexplore.ieee.org/document/9489127" class="text-indigo-400 hover:text-indigo-200 font-semibold" target="_blank">View on IEEE Xplore &rarr;</a>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="fade-in">
+        <h2 class="section-title mb-6">Get In Touch</h2>
+        <p class="text-gray-200 mb-5">
+            I'm actively seeking internship and full-time opportunities in VLSI. If you have any questions or would like to connect, please feel free to send me a message.
+        </p>
+        <form action="https://formspree.io/f/mjkoknra" method="POST" class="max-w-xl card no-hover p-6 mb-6">
+            <div class="grid grid-cols-1 gap-y-6">
+                <div>
+                    <input type="text" name="full-name" id="full-name" autocomplete="name" class="form-input" placeholder="Full Name" required>
+                </div>
+                <div>
+                    <input id="email" name="email" type="email" autocomplete="email" class="form-input" placeholder="Email" required>
+                </div>
+                <div>
+                    <textarea id="message" name="message" rows="4" class="form-input" placeholder="Message" required></textarea>
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit"
+                        class="w-full inline-flex items-center justify-center px-6 py-3 border-0 text-base font-semibold rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow hover:scale-[1.05] transition">
+                    Send Message
+                </button>
+            </div>
+        </form>
+    </section>
+
+</main>
+<script>
+    // Navigation script (unchanged)
+    function showPage(pageId, clickedLink) {
+        const sections = document.querySelectorAll('main section');
+        sections.forEach(section => {
+            section.style.display = 'none';
+            section.classList.remove('fade-in');
+        });
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.style.display = 'block';
+            void targetPage.offsetWidth; // trigger reflow for animation reset
+            targetPage.classList.add('fade-in');
+
+            setTimeout(function() {
+                const yOffset = -28; 
+                const y = targetPage.getBoundingClientRect().top + window.scrollY + yOffset;
+                window.scrollTo({ top: y, left: 0, behavior: 'smooth' });
+            }, 60);
+        }
+        const navLinks = document.querySelectorAll('#nav-menu .nav-link');
+        navLinks.forEach(link => link.classList.remove('active'));
+        if (clickedLink) clickedLink.classList.add('active');
+        if(history.pushState) history.pushState(null, null, '#'+pageId);
+        else location.hash = '#'+pageId;
+    }
+    window.onload = function() {
+        const hash = window.location.hash.substring(1);
+        const pageToShow = hash || 'home';
+        const linkToClick = document.querySelector(`.nav-link[href="#${pageToShow}"]`);
+        showPage(pageToShow, linkToClick);
+    };
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('bg-animation');
+    const ctx = canvas.getContext('2d');
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+    let particles = [];
+    
+    // Mouse object to store cursor position
+    const mouse = {
+        x: null,
+        y: null,
+        radius: 120 // Area of effect for mouse interaction
+    };
+
+    // Event listeners for mouse movement
+    window.addEventListener('mousemove', (event) => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
+    window.addEventListener('mouseout', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+    
+    // Animation parameters
+    const particleCount = Math.floor((width * height) / 18000);
+    const particleSpeed = 0.4;
+    const connectionDistance = Math.min(width, height) * 0.15;
+    const particleColor = 'rgba(129, 140, 248, 0.7)';
+    const lineColor = 'rgba(99, 102, 241, 0.3)';
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        mouse.radius = 120;
+        initParticles();
+    });
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.baseX = this.x; // Store original position for return
+            this.baseY = this.y;
+            this.vx = (Math.random() - 0.5) * particleSpeed;
+            this.vy = (Math.random() - 0.5) * particleSpeed;
+            this.radius = Math.random() * 1.5 + 1;
+            this.density = (Math.random() * 30) + 1; // How much the particle reacts to mouse
+        }
+
+        update() {
+            // Mouse Repulsion Logic
+            if (mouse.x !== null) {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                // Force is stronger when closer to the mouse
+                let force = (maxDistance - distance) / maxDistance;
+
+                if (distance < mouse.radius) {
+                    // Apply the repulsion force
+                    this.x -= forceDirectionX * force * this.density * 0.1;
+                    this.y -= forceDirectionY * force * this.density * 0.1;
+                }
+            }
+            
+            // Standard movement
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Bounce off edges
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = particleColor;
+            ctx.fill();
+        }
+    }
+    
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+            // Connect particles to each other
+            for (let j = i; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < connectionDistance) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distance / connectionDistance})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.stroke();
+                }
+            }
+            // Connect particles to the mouse
+            if (mouse.x !== null) {
+                 const dxMouse = particles[i].x - mouse.x;
+                 const dyMouse = particles[i].y - mouse.y;
+                 const distanceMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                 if (distanceMouse < connectionDistance) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.strokeStyle = `rgba(165, 180, 252, ${1 - distanceMouse / connectionDistance})`; // Lighter color for mouse lines
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                 }
+            }
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+
+        drawConnections();
+        requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+});
+</script>
+
+</body>
+</html>
