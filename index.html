@@ -30,18 +30,16 @@
             --text-secondary-light: #475569; /* slate-600 */
             --text-accent-light: #475569; /* slate-600 */
             --nav-link-hover-bg-light: #e2e8f0; /* slate-200 */
-            --nav-link-active-bg-light: #334155; /* slate-700 */
-            --nav-link-active-text-light: #ffffff;
+            /* UPDATED Active Nav Link colors for Light Mode */
+            --nav-link-active-bg-light: #cbd5e1; /* slate-300 */
+            --nav-link-active-text-light: #1e293b; /* slate-800 */
             --form-bg-light: #f8fafc; /* slate-50 */
             --form-border-light: #cbd5e1; /* slate-300 */
             --form-focus-border-light: #475569; /* slate-600 */
             --skill-tag-bg-light: #e2e8f0; /* slate-200 */
             --skill-tag-border-light: #e2e8f0;
             --skill-tag-text-light: #334155; /* slate-700 */
-            --tech-tag-bg-dark: linear-gradient(110deg,rgba(99,102,241,0.68) 30%,rgba(36,182,255,0.82) 100%);
-            --tech-tag-text-dark: #fff;
-            --tech-tag-border-dark: #b2c0fe40;
-
+            
             /* Dark Mode Colors (Original) */
             --bg-color-dark: #0f172a;
             --text-color-dark: #e2e8f0;
@@ -63,6 +61,9 @@
             --skill-tag-bg-dark: linear-gradient(120deg, rgba(42,93,204,0.20) 0%, rgba(99,102,241,0.38) 100%);
             --skill-tag-border-dark: rgba(255, 255, 255, 0.12);
             --skill-tag-text-dark: #e0e7ff;
+            --tech-tag-bg-dark: linear-gradient(110deg,rgba(99,102,241,0.68) 30%,rgba(36,182,255,0.82) 100%);
+            --tech-tag-text-dark: #fff;
+            --tech-tag-border-dark: #b2c0fe40;
         }
 
         body {
@@ -108,20 +109,20 @@
         .light-mode .nav-link.active {
             background: var(--nav-link-active-bg-light);
             color: var(--nav-link-active-text-light);
-            box-shadow: none;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
         }
         .light-mode .nav-link:not(.active):hover { background-color: var(--nav-link-hover-bg-light); color: var(--text-primary-light); }
         
-        /* Buttons Glass Finish */
+        /* Buttons Gradient Finish */
         .light-mode .bg-indigo-600 {
-            background-color: rgba(71, 85, 105, 0.8) !important; /* slate-600 with opacity */
+            background: linear-gradient(140deg, #475569 0%, #1e293b 100%) !important; /* slate-600 to slate-800 */
             color: #ffffff !important;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #475569;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            backdrop-filter: none;
         }
         .light-mode .bg-indigo-600:hover {
-            background-color: rgba(51, 65, 85, 0.9) !important; /* slate-700 with opacity */
+            background: #0f172a !important; /* slate-900 */
         }
         .light-mode .focus\:ring-indigo-500:focus {
             --tw-ring-color: var(--text-secondary-light);
@@ -174,13 +175,12 @@
             background: var(--tech-tag-bg-dark); color: var(--tech-tag-text-dark);
             border: 1.5px solid var(--tech-tag-border-dark);
         }
-        /* Unifying tech tags with skill tags in light mode */
-        .light-mode .tech-tag, .light-mode .tech-tag.bright {
-             background: var(--skill-tag-bg-light);
+        .light-mode .tech-tag {
+             background: linear-gradient(110deg, #e2e8f0 0%, #cbd5e1 100%); /* slate-200 to slate-300 */
              color: var(--skill-tag-text-light);
-             border-color: var(--skill-tag-border-light);
+             border-color: #cbd5e1; /* slate-300 */
              text-shadow: none;
-             box-shadow: none;
+             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .form-input {
